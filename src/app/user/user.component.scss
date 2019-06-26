@@ -31,10 +31,10 @@
 			.logos {
 				img {
 					display: inline-block;
-					width: 110px;
+					width: 120px;
 
 					&:not(:last-child) {
-						margin: 0 24px 0 0;
+						margin: 0 16px 0 0;
 					}
 				}
 			}
@@ -42,7 +42,7 @@
 			img {
 				width: 80%;
 				max-width: 360px;
-				margin-top: 20px;
+				margin-top: 50px;
 			}
 
 			@media (max-height: 780px) {
@@ -99,6 +99,20 @@
 	}
 }
 
+.share-app{
+	margin-top: 56px;
+	a{
+		display: inline-block;
+		&:not(:last-child){
+			margin-right: 24px;
+		}
+		img{
+			height: 40px;
+		}
+	}
+
+}
+
 @media (max-width: 1024px) {
 	.auth-col {
 		width: 100%;
@@ -115,4 +129,9 @@
 	.auth-col {
 		padding: 40px 32px;
 	}
+}
+.copyright{
+	font-size: 14px;
+	color: #A19EAF;
+	text-transform: uppercase;
 }

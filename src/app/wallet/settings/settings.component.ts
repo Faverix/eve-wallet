@@ -7,6 +7,7 @@ import { AccountService } from '../../core/services/account.service';
 import { Web3Service } from '../../core/services/web3.service';
 import { TokenService } from '../../core/services/token.service';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-settings',
@@ -15,25 +16,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SettingsComponent implements OnInit{
   account;
-  privateKey:string;
   brainKey:string;
 	constructor(private route:ActivatedRoute,
               private web3:Web3Service,
               public dialog: MatDialog,
               private accountService: AccountService,
+              public translateService:TranslateService,
               private snackBar: MatSnackBar) {
 
   }
   
   ngOnInit(){
     this.account = this.accountService.accountInfo;
-    this.privateKey = this.web3.account.privateKey;
     this.brainKey= this.accountService.brainKeyEncrypted;
   }
 
 	backupPrivateKey(backup) {
 		const dialogRef = this.dialog.open(PrivateKeyDialog, {
-  		width: '870px',
+  		width: '960px',
       panelClass: 'wallet-dialog',
       data:{backup:backup}
   	});
@@ -56,6 +56,6 @@ export class SettingsComponent implements OnInit{
     document.body.removeChild(input);
     //snackbar open
 
-    this.snackBar.open('Copied!', null, {duration: 1000});
+    this.snackBar.open(this.translateService.instant('wallet.copied'), null, {duration: 1000});
   }
 }

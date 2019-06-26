@@ -20,6 +20,16 @@
 
 .menu {
 	display: flex;
+	justify-content: space-between;
+	color:white;
+	width:100%;
+	.wallet-menu{
+		display: flex;
+		align-items: center;
+		span{
+			margin-left:10px;
+		}
+	}
 	&-items {
 		display: inline-flex;
 		justify-content: flex-end;
@@ -58,12 +68,34 @@
 }
 
 .footer {
+	width: 100%;
 	padding: 25px 0;
-	text-align: right;
 	color: #A19EAF;
+
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+
+	> div {
+		white-space: nowrap;
+	}
+
+	a {
+		display: inline-block;
+		margin: 0 0 0 17px;
+	}
+
+	img {
+		display: block;
+	}
 
 	@media (max-width: 576px) {
 		text-align: center;
+		flex-direction: column;
+
+		> div:first-child {
+			margin: 0 0 16px;
+		}
 	}
 }
 
@@ -75,14 +107,14 @@
 	position: relative;
 	display: inline-block;
 	width: 50%;
-	padding: 8px;
+	padding: 20px;
 	border-radius: 8px 8px 0 0;
-
 	&--active {
 		cursor: default;
 		background: #ffffff;
 
-		.wallet-card__inner { cursor: default; }
+		.wallet-card__inner { cursor: default; display: flex;
+			justify-content: center;}
 
 		&:before {
 			content: '';
@@ -114,15 +146,17 @@
 
 	&__inner {
 		width: 100%;
-		padding: 30px 36px;
+		padding: 20px 36px;
 		background: #ffffff;
-		border-radius: 20px;
+		border-radius: 8px;
 		display: inline-flex;
 		align-items: center;
 		color: #ffffff;
 		cursor: pointer;
 
 		img {
+			width: 80px;
+			height: 80px;
 			border-radius: 50%;
 		}
 
@@ -131,7 +165,7 @@
 	}
 
 	&__name {
-		margin-left: 8px;
+		margin-left: 24px;
 		h3 {
 			font-size: 28px;
 			line-height: 36px;
@@ -169,6 +203,10 @@
 			//display: none;
 		}
 	}
+}
+
+.no-curser{
+	cursor: default;
 }
 
 .wallet-inner {

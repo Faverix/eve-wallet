@@ -28,14 +28,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'eve-wallet-frontend-app'}),
+    BrowserModule.withServerTransition({ appId: 'eve-wallet-frontend-app' }),
+    BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
     TransferHttpCacheModule,
     UserModule,
     WalletModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -51,7 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ErrorService,
     Web3Service,
     CryptService,
-    TokenService
+    TokenService,
   ],
   bootstrap: [AppComponent]
 })

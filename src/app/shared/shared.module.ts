@@ -41,6 +41,10 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NumberPipe } from './number.pipe';
+import { ExpireLinkComponent } from './expire-link/expire-link';
+import { ScieNotationPipe } from './scieNotation.pipe';
+import { TimePipe } from './time.pipe';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -93,7 +97,11 @@ export function createTranslateLoader(http: HttpClient) {
     })
   ],
   declarations: [
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NumberPipe,
+      ScieNotationPipe,
+    ExpireLinkComponent,
+      TimePipe
   ],
   exports: [
     CommonModule,
@@ -132,6 +140,9 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    NumberPipe,
+      TimePipe,
+      ScieNotationPipe
   ],
   providers: [DecimalPipe, DatePipe],
   entryComponents: []

@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
   title: string = 'register';
   emailType: boolean = false;
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
   loading:boolean = false;
   preRegisterSubscription: Subscription;
   errorEventEmiterSubscription: Subscription;
-
+  errorMessage:string = '';
   constructor(private errorService: ErrorService,
     @Inject(PLATFORM_ID) private platformId: Object, private accountService: AccountService) {
 
@@ -37,9 +38,8 @@ export class RegisterComponent implements OnInit {
 
     this.errorEventEmiterSubscription = this.errorService.errorEventEmiter.subscribe((data: ErrorEvent) => {
       if (data.action === 'preRegister') {
-        console.log(data.message);
         this.loading = false;
-
+        this.errorMessage = data.message;
       }
     });
 
@@ -54,6 +54,7 @@ export class RegisterComponent implements OnInit {
       this.emailType = true;
       return
     }
+    this.errorMessage = '';
     this.loading = true;
     this.accountService.preRegister(this.emailControl.value);
   }
